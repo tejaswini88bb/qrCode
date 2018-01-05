@@ -1,0 +1,9 @@
+<a routerLink="/dashboard">table view</a>
+<h1>UPDATE PRODUCT</h1>
+<div>
+    <form id="productForm" name="productForm" #productData = "ngForm" (ngSubmit)="updateProduct(productData.value)">
+        <div><label>Name</label><input type="text" id="name" name="name" placeholder="name" [(ngModel)]="data.name" ngModel></div>
+        <div><label>color</label><input type="text" id="color" name="color" placeholder="color" [(ngModel)]="data.color" ngModel></div>
+        <input type="submit" value="Update Product">
+    </form>
+</div>

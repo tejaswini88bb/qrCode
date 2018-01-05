@@ -1,0 +1,71 @@
+<div>
+    <h3>Hello {{username}}</h3>
+    <button mat-button routerLink="/">GO BACK</button>
+</div>
+<div *ngIf="username != 'admin'">
+<div id="carouselExampleIndicators" class="carousel" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+<!--      <img class="d-block w-100" src="..." alt="First slide">-->
+        IMAGE one
+    </div>
+    <div class="carousel-item">
+        dfgdfrs
+<!--      <img class="d-block w-100" src="..." alt="Second slide">-->
+    </div>
+    <div class="carousel-item">xfxfxdf
+<!--      <img class="d-block w-100" src="..." alt="Third slide">-->
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div>
+    <button mat-button routerLink="/product">ADD PRODUCT</button>
+</div>
+</div>
+<!--<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>-->
+
+<div class="example-container mat-elevation-z8" *ngIf="username == 'admin'">
+<h1>Products</h1>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="color">
+      <mat-header-cell *matHeaderCellDef> color </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.color}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> action </mat-header-cell>
+      <mat-cell *matCellDef="let product"> 
+          <button  mat-button [routerLink]="['/updateProduct', product.id]">Update</button>
+          <button  mat-button (click)="deleteProduct(product.id)">Delete</button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+<!--    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>-->
+</div>
